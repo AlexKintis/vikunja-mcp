@@ -99,6 +99,35 @@ Then configure your MCP client:
 }
 ```
 
+### Option 3: Docker Container (GHCR)
+
+You can also run the server inside a Docker container using the image published to GitHub Container Registry:
+
+```bash
+docker run -i --rm \
+  -e VIKUNJA_URL="https://your-vikunja-instance.com/api/v1" \
+  -e VIKUNJA_API_TOKEN="your-api-token" \
+  ghcr.io/democratize-technology/vikunja-mcp:latest
+```
+
+Or configure it directly in your MCP client (e.g. Claude Desktop):
+
+```json
+{
+  "vikunja": {
+    "command": "docker",
+    "args": [
+      "run",
+      "-i",
+      "--rm",
+      "-e", "VIKUNJA_URL=https://your-vikunja-instance.com/api/v1",
+      "-e", "VIKUNJA_API_TOKEN=your-api-token",
+      "ghcr.io/democratize-technology/vikunja-mcp:latest"
+    ]
+  }
+}
+```
+
 ## Configuration
 
 ### Logging Configuration
